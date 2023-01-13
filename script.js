@@ -74,6 +74,7 @@ function CreateCards(Quant_Cartas){
 let QuantClicks = 0;
 let Previous_Id = 0;
 let Current_Id = 0;
+let ThirdCard = 0;
 let QuantPairs = 0;
 
 
@@ -91,7 +92,11 @@ function ShowVerse(carta, id_atual){
         // se a segunda for carta revelada
         if(QuantClicks % 2 === 0){
             Current_Id = id_atual;
-            if(((Previous_Id % 2 === 0) && (id_atual % 2 !== 0) && (Previous_Id - id_atual === 1)) || ((Previous_Id % 2 !== 0) && (id_atual % 2 === 0) && (id_atual - Previous_Id === 1))){ // se formar o par
+            // se formar o par
+            if(((Previous_Id % 2 === 0) && (id_atual % 2 !== 0) && (Previous_Id - id_atual === 1)) || ((Previous_Id % 2 !== 0) && (id_atual % 2 === 0) && (id_atual - Previous_Id === 1))){ 
+                
+                // se a terceira carta for virada
+                //  Aguardando desenvolvimento.
 
                 // se todas as cartas já foram viradas
                 QuantPairs++;
@@ -101,9 +106,12 @@ function ShowVerse(carta, id_atual){
 
                     )
                 }
+
     
             }else{ // se não formar o par
-                setTimeout(desvirarCarta, 1000);            
+                
+                setTimeout(desvirarCarta, 1000);
+
             }
     
         // a primeira carta revelada --> guarda seu id
@@ -129,7 +137,7 @@ function Compare() {
 }
 
 function RestartGame(){
-    const Answer = prompt("Deseja recomeçar o jogo?")
+    const Answer = prompt("Digite 'sim' caso deseje recomeçar o jogo?")
 
     if(Answer === "sim"){
         // falta zerar tudo
