@@ -1,3 +1,6 @@
+let Min = 0;
+let Seg = 0;
+let Contador = 0;
 let Quant_Cartas = 4;
 QuantCards();
 
@@ -5,6 +8,9 @@ function QuantCards(){
     Quant_Cartas = prompt("Digite a quantidade de cartas que deseja jogar?");
     if((Quant_Cartas % 2 === 0) && (Quant_Cartas >= 4) && (Quant_Cartas <= 14)){
         CreateCards(Quant_Cartas);
+        Min = 0;
+        Seg = 0;
+        Contador = 0;
     }else{
         QuantCards();
     }
@@ -24,19 +30,40 @@ function CreateCards(Quant_Cartas){
 
     for(let i=0; i<Quant_Cartas; i++){
         if((CardsList_id[i] === 1) || (CardsList_id[i] === 2)){
-            GameGrid.innerHTML += `<li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card"><img class="Parrot" data-test="face-down-image" src="./Img/back.png"><img class="img_Verse" data-test="face-up-image" src="./Img/bobrossparrot.gif"></li>`;
+            GameGrid.innerHTML += ` <li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card">
+                                        <img class="Parrot" data-test="face-down-image" src="./Img/back.png">
+                                        <img class="img_Verse" data-test="face-up-image" src="./Img/bobrossparrot.gif">
+                                    </li>`;
         }else if((CardsList_id[i] === 3) || (CardsList_id[i] === 4)){
-            GameGrid.innerHTML += `<li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card"><img class="Parrot" data-test="face-down-image" src="./Img/back.png"><img class="img_Verse" data-test="face-up-image" src="./Img/explodyparrot.gif"></li>`;
+            GameGrid.innerHTML += ` <li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card">
+                                        <img class="Parrot" data-test="face-down-image" src="./Img/back.png">
+                                        <img class="img_Verse" data-test="face-up-image" src="./Img/explodyparrot.gif">
+                                    </li>`;
         }else if((CardsList_id[i] === 5) || (CardsList_id[i] === 6)){
-            GameGrid.innerHTML += `<li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card"><img class="Parrot" data-test="face-down-image" src="./Img/back.png"><img class="img_Verse" data-test="face-up-image" src="./Img/fiestaparrot.gif"></li>`;
+            GameGrid.innerHTML += ` <li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card">
+                                        <img class="Parrot" data-test="face-down-image" src="./Img/back.png">
+                                        <img class="img_Verse" data-test="face-up-image" src="./Img/fiestaparrot.gif">
+                                    </li>`;
         }else if((CardsList_id[i] === 7) || (CardsList_id[i] === 8)){
-            GameGrid.innerHTML += `<li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card"><img class="Parrot" data-test="face-down-image" src="./Img/back.png"><img class="img_Verse" data-test="face-up-image" src="./Img/metalparrot.gif"></li>`;
+            GameGrid.innerHTML += ` <li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card">
+                                        <img class="Parrot" data-test="face-down-image" src="./Img/back.png">
+                                        <img class="img_Verse" data-test="face-up-image" src="./Img/metalparrot.gif">
+                                    </li>`;
         }else if((CardsList_id[i] === 9) || (CardsList_id[i] === 10)){
-            GameGrid.innerHTML += `<li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card"><img class="Parrot" data-test="face-down-image" src="./Img/back.png"><img class="img_Verse" data-test="face-up-image" src="./Img/revertitparrot.gif"></li>`;
+            GameGrid.innerHTML += ` <li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card">
+                                        <img class="Parrot" data-test="face-down-image" src="./Img/back.png">
+                                        <img class="img_Verse" data-test="face-up-image" src="./Img/revertitparrot.gif">
+                                    </li>`;
         }else if((CardsList_id[i] === 11) || (CardsList_id[i] === 12)){
-            GameGrid.innerHTML += `<li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card"><img class="Parrot" data-test="face-down-image" src="./Img/back.png"><img class="img_Verse" data-test="face-up-image" src="./Img/tripletsparrot.gif"></li>`;
+            GameGrid.innerHTML += ` <li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card">
+                                        <img class="Parrot" data-test="face-down-image" src="./Img/back.png">
+                                        <img class="img_Verse" data-test="face-up-image" src="./Img/tripletsparrot.gif">
+                                    </li>`;
         }else if((CardsList_id[i] === 13) || (CardsList_id[i] === 14)){
-            GameGrid.innerHTML += `<li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card"><img class="Parrot" data-test="face-down-image" src="./Img/back.png"><img class="img_Verse" data-test="face-up-image" src="./Img/unicornparrot.gif"></li>`;
+            GameGrid.innerHTML += ` <li class="Card Card${CardsList_id[i]}" onclick ="ShowVerse(this, ${CardsList_id[i]})" data-test="card">
+                                        <img class="Parrot" data-test="face-down-image" src="./Img/back.png">
+                                        <img class="img_Verse" data-test="face-up-image" src="./Img/unicornparrot.gif">
+                                    </li>`;
         }
     }    
 }
@@ -47,6 +74,7 @@ let QuantClicks = 0;
 let Previous_Id = 0;
 let Current_Id = 0;
 let QuantPairs = 0;
+
 
 function ShowVerse(carta, id_atual){
 
@@ -67,8 +95,10 @@ function ShowVerse(carta, id_atual){
                 // se todas as cartas já foram viradas
                 QuantPairs++;
                 if(QuantPairs === Quant_Cartas/2){
-                    alert(`Você ganhou em ${QuantClicks} jogadas!`)
-                    RestartGame()
+                    alert(`Você ganhou em ${QuantClicks} jogadas! A duração do jogo foi de ${Contador} segundos`)
+                    RestartGame(
+
+                    )
                 }
     
             }else{ // se não formar o par
@@ -112,4 +142,23 @@ function RestartGame(){
     }else{
         alert("Obrigada por jogar")
     }
+}
+
+
+setInterval(Cronometer, 1000);  
+let CronSeg = document.querySelector('.Seg');
+let CronMin = document.querySelector('.Min');
+
+
+function Cronometer(){
+    Seg++;
+    Contador ++;
+    if(Seg == 60){
+        Seg = 0;
+        Min++;
+    }
+
+    CronSeg.innerHTML = `<span>${Seg}</span>`;
+    CronMin.innerHTML = `<span>${Min}</span>`;
+
 }
