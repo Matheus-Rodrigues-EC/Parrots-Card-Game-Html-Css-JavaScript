@@ -5,13 +5,14 @@ let Quant_Cartas = 4;
 QuantCards();
 
 function QuantCards(){
-    Quant_Cartas = prompt("Digite a quantidade de cartas que deseja jogar?");
+    Quant_Cartas = prompt("Digite a quantidade, em pares, de cartas que deseja jogar.");
     if((Quant_Cartas % 2 === 0) && (Quant_Cartas >= 4) && (Quant_Cartas <= 14)){
         CreateCards(Quant_Cartas);
         Min = 0;
         Seg = 0;
         Contador = 0;
     }else{
+        alert('Valor inválido. Digite um número par.')
         QuantCards();
     }
 }
