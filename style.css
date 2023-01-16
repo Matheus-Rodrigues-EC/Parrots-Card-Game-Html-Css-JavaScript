@@ -87,6 +87,19 @@ p {
     transform: rotateY(180deg);
 }
 
+.Card.Finded {
+    transform: rotateY(180deg);
+}
+
+.Card.Finded .Parrot {
+    opacity: 0;
+}
+
+.Card.Finded .img_Verse{
+    opacity: 1;
+    transform: rotateY(180deg);
+}
+
 
 
 @media(max-width:376px) {

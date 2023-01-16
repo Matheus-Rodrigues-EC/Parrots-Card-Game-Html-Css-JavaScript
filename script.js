@@ -94,10 +94,7 @@ function ShowVerse(carta, id_atual){
             Current_Id = id_atual;
             // se formar o par
             if(((Previous_Id % 2 === 0) && (id_atual % 2 !== 0) && (Previous_Id - id_atual === 1)) || ((Previous_Id % 2 !== 0) && (id_atual % 2 === 0) && (id_atual - Previous_Id === 1))){ 
-                
-                // se a terceira carta for virada
-                //  Aguardando desenvolvimento.
-
+                setFinded();
                 // se todas as cartas já foram viradas
                 QuantPairs++;
                 if(QuantPairs === Quant_Cartas/2){
@@ -120,14 +117,42 @@ function ShowVerse(carta, id_atual){
         }
     }
 
+    function setFinded(){
 
-
-    function desvirarCarta(){
         let FirstCard = document.querySelector(".Card"+Previous_Id)
+        FirstCard.classList.add('Finded');
         FirstCard.classList.remove('Show_Verse')
 
         let SecondCard = document.querySelector(".Card"+Current_Id)
+        SecondCard.classList.add('Finded');
         SecondCard.classList.remove('Show_Verse')
+
+//        const FindedCard = document.querySelectorAll('.Show_Verse');
+//        FindedCard.forEach((card) => {
+//            card.classList.add('Finded');
+//            card.classList.remove('Show_Verse');
+//        })
+    }
+
+
+    function desvirarCarta(){
+        const testeDesvirar = document.querySelectorAll('.Card', 'Show_Verse');
+
+        testeDesvirar.forEach((card) => {
+            card.classList.remove('Show_Verse');
+        })
+        console.log(Current_Id);
+        console.log(Previous_Id);
+        Previous_Id = 0;
+        Current_Id = 0;
+        console.log(Current_Id);
+        console.log(Previous_Id);
+
+//        let FirstCard = document.querySelector(".Card"+Previous_Id)
+//        FirstCard.classList.remove('Show_Verse')
+//
+//        let SecondCard = document.querySelector(".Card"+Current_Id)
+//        SecondCard.classList.remove('Show_Verse')
     }
 
 }
