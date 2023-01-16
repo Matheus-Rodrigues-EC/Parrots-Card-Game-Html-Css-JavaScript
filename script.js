@@ -12,7 +12,7 @@ function QuantCards(){
         Seg = 0;
         Contador = 0;
     }else{
-        alert('Valor inválido. Digite um número par.')
+        alert('Valor inválido. Digite um número par entre 4 e 14.')
         QuantCards();
     }
 }
